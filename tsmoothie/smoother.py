@@ -1269,7 +1269,8 @@ class DecomposeSmoother(_BaseSmoother):
         smooth = smoother.smooth_data
         for season in seasonal:
             if self.method == 'additive':
-                smooth += season
+              #smooth += season
+              smooth = np.add(smooth, season, out=smooth, casting='unsafe')
             else:
                 smooth *= season
 
